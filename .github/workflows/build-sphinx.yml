@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - test
 
 
 jobs:
@@ -12,8 +11,19 @@ jobs:
   build_sphinx_job:
     runs-on: ubuntu-latest
     steps:
+     
+      - name: download this repository
+        uses: actions/checkout@v2
 
       - name: Build Sphinx pages
         run: |
           python3 -m pip install sphinx
-          docs/buildsite.sh
+          make clean
+          make html
+          ls -R
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/html
