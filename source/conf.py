@@ -12,9 +12,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+
+#import os
+#import sys
+#sys.path.insert(0, os.path.abspath('./nse-python/nse_python'))
 
 
 # -- Project information -----------------------------------------------------
@@ -40,6 +41,8 @@ release = '0.0'
 # ones.
 extensions = [
     'sphinx.ext.githubpages',
+    'sphinxcontrib.programoutput',
+    'pyquickhelper.sphinxext.sphinx_runpython_extension'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -75,7 +78,9 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+
+#html_theme = 'alabaster'
+html_theme = 'karma_sphinx_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -146,3 +151,7 @@ man_pages = [
 
 
 # -- Extension configuration -------------------------------------------------
+programoutput_prompt_template = "{command}"#"{command}\n{output}"
+
+
+html_sidebars = { '**': ['localtoc.html', 'relations.html'] }

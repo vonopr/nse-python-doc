@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - test
+      - for_sirius
 
 
 jobs:
@@ -11,19 +13,28 @@ jobs:
   build_sphinx_job:
     runs-on: ubuntu-latest
     steps:
-     
+
       - name: download this repository
         uses: actions/checkout@v2
 
       - name: Build Sphinx pages
         run: |
+          git clone -b for_sirius http://github-nse-python-doc:${{ secrets.GITLAB_TOKEN }}@tesla.parallel.ru/vonopr/nse-python.git
+          cd nse-python
+          pip install .
+          cd ..
+                   
           python3 -m pip install sphinx
-          make clean
-          make html
-          ls -R
-      
+          python3 -m pip install sphinxcontrib-programoutput
+          python3 -m pip install pyquickhelper
+          python3 -m pip install sphinxcontrib-imagesvg
+          python3 -m pip install karma_sphinx_theme
+          
+          #need some magic here
+          make clean; make html; echo "" >>  source/index.rst; make html
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/html
+          publish_dir: build/html
