@@ -30,8 +30,8 @@ jobs:
           python3 -m pip install sphinxcontrib-imagesvg
           python3 -m pip install karma_sphinx_theme
           
-          #need some magic here
-          make clean; make html; echo "" >>  source/index.rst; make html
+          #need some magic here 
+          make html; echo "" >>  source/nseplot1d.rst;  make html; echo "" >>  source/index.rst; make html; make html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
