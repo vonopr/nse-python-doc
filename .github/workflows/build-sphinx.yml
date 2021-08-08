@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Sphinx pages
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
           git clone -b for_sirius http://github-nse-python-doc:${{ secrets.GITLAB_TOKEN }}@tesla.parallel.ru/vonopr/nse-python.git
           cd nse-python
