@@ -1,0 +1,47 @@
+a:link {
+  color: MidnightBlue;
+}
+
+/* visited link */
+a:visited {
+  color: MidnightBlue;
+}
+
+/* mouse over link */
+a:hover {
+  color: MidnightBlue;
+}
+
+/* selected link */
+a:active {
+  color: MidnightBlue;
+}
+
+a.site-title {
+  color: white;
+}
+a.site-title:link {
+  color: white;
+}
+a.site-title:visited {
+  color: white;
+}
+a.site-title:hover {
+  color: white;
+}
+a.site-title:active {
+  color: white;
+}
+
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 14px;
+}
