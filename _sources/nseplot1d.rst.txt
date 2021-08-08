@@ -1,5 +1,4 @@
 
-
 Examples of nseplot1d usage
 ===========================
 
