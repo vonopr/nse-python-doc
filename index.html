@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>nse-python docs &mdash; nse-python 0.0 documentation</title>
+  <title>nse-python &mdash; nse-python 0.0 documentation</title>
   
 
   
@@ -30,7 +30,8 @@
   <link rel="stylesheet" href="_static/css/theme.min.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples of nseplot1d usage" href="nseplot1d.html" /> 
 
 </head>
 
@@ -69,7 +70,7 @@
     
       <li><a href="#">Docs</a></li>
         
-      <li>nse-python docs</li>
+      <li>nse-python</li>
     
     
       <li class="breadcrumbs-aside">
@@ -104,19 +105,19 @@
                         
                             
                             
-                                <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">nse-python docs</a><ul>
-<li><a class="reference internal" href="#download-sample-data">Download sample data</a></li>
-<li><a class="reference internal" href="#basic-plot">Basic plot</a></li>
-<li><a class="reference internal" href="#input-and-output-files">Input and output files</a></li>
-<li><a class="reference internal" href="#select-variables">Select variables</a></li>
-<li><a class="reference internal" href="#x-and-y-bounds">X and Y bounds</a></li>
-<li><a class="reference internal" href="#reference-values">Reference values</a></li>
-<li><a class="reference internal" href="#title-labels-and-legend">Title, labels and legend</a></li>
+                                <ul>
+<li class="toctree-l1"><a class="reference internal" href="nseplot1d.html">Examples of nseplot1d usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#download-sample-data">Download sample data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#basic-plot">Basic plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#input-and-output-files">Input and output files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#select-variables">Select variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#x-and-y-bounds">X and Y bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#reference-values">Reference values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nseplot1d.html#title-labels-and-legend">Title, labels and legend</a></li>
 </ul>
 </li>
 </ul>
-</div>
+
                             
                         
                     </div>
@@ -125,136 +126,38 @@
                     <div class="document">
                         
                             
-  <section id="nse-python-docs">
-<h1>nse-python docs<a class="headerlink" href="#nse-python-docs" title="Permalink to this headline">¶</a></h1>
-<p>The documention of nse-python project.</p>
-<p>Here we provide a collection of usage cases.</p>
-<p>To get help on <code class="docutils literal notranslate"><span class="pre">nseplot1d</span></code> command, run it with <code class="docutils literal notranslate"><span class="pre">--help</span></code> option:</p>
+  <div class="toctree-wrapper compound">
+</div>
+<section id="nse-python">
+<h1>nse-python<a class="headerlink" href="#nse-python" title="Permalink to this headline">¶</a></h1>
+<p>This is the documention of <a class="reference external" href="http://tesla.parallel.ru/vonopr/nse-python">nse-python</a> project.
+It provides python tools for processing the ouput of nse projects.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Download <code class="docutils literal notranslate"><span class="pre">nse-python</span></code> with git and install with <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone http://tesla.parallel.ru/vonopr/nse-python.git
+<span class="nb">cd</span> nse-python
+pip install .
+</pre></div>
+</div>
+</section>
+<section id="how-to-start">
+<h2>How to start<a class="headerlink" href="#how-to-start" title="Permalink to this headline">¶</a></h2>
+<p>To create a plot of timeseries contained in a dsq-file energy.dsq run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d energy.dsq
+</pre></div>
+</div>
+<p>This will produce an image <em>energy.png</em> inside your current
+working directory:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../build/html/work/data/series/energy.png"><img alt="../build/html/work/data/series/energy.png" src="../build/html/work/data/series/energy.png" style="width: 480.0px; height: 360.0px;" /></a>
+</figure>
+<p>To get information about <code class="docutils literal notranslate"><span class="pre">nseplot1d</span></code> usage run it with <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d --help
 </pre></div>
 </div>
-<section id="download-sample-data">
-<h2>Download sample data<a class="headerlink" href="#download-sample-data" title="Permalink to this headline">¶</a></h2>
-<p>We provide some sample data to demenstrate how <code class="docutils literal notranslate"><span class="pre">nseplot1d</span></code> works.
-You may download it with</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p data
-curl -o example-data.zip --header &#39;Private-Token: yiuskGfW5Z31io2bmwgh&#39;  http://tesla.parallel.ru/api/v4/projects/145/packages/generic/example-data/0.1.0/example-data.zip
-unzip example-data.zip
-mv -u example-data/* data/
-mkdir -p pics
-cd pics
-</pre></div>
-</div>
-<p>The directory tree would be as following:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.
-├── data
-│   ├── binary-3d
-│   ├── plt-1d
-│   ├── plt-1d-multizone
-│   ├── plt-2d
-│   ├── plt-3d
-│   └── series
-├── example-data
-└── pics
-
-9 directories
-</pre></div>
-</div>
-</section>
-<section id="basic-plot">
-<h2>Basic plot<a class="headerlink" href="#basic-plot" title="Permalink to this headline">¶</a></h2>
-<p>To get a basic plot of timeseries contained in <em>../data/series/energy.dsq</em> run:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d  ../data/series/energy.dsq
-</pre></div>
-</div>
-<p>This will produce an image <em>energy.png</em> inside your working directory <em>pics</em>:</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy.png"><img alt="_images/energy.png" src="_images/energy.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-</section>
-<section id="input-and-output-files">
-<h2>Input and output files<a class="headerlink" href="#input-and-output-files" title="Permalink to this headline">¶</a></h2>
-<p>To alter the name of the output provide <code class="docutils literal notranslate"><span class="pre">-o</span></code> option:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq -o energy_alter.jpg
-</pre></div>
-</div>
-<p>Multiple input files are also possible. In this case <code class="docutils literal notranslate"><span class="pre">-o</span></code> option is not applicable.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq ../data/series/phys.dsq
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/*.dsq
-</pre></div>
-</div>
-</section>
-<section id="select-variables">
-<h2>Select variables<a class="headerlink" href="#select-variables" title="Permalink to this headline">¶</a></h2>
-<p>Choose variables to plot with <code class="docutils literal notranslate"><span class="pre">--vars</span></code> option:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq  --vars &quot;u-TKE [avg]&quot; &quot;v-TKE [avg]&quot; -o energy-uv.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-uv.png"><img alt="_images/energy-uv.png" src="_images/energy-uv.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-</section>
-<section id="x-and-y-bounds">
-<h2>X and Y bounds<a class="headerlink" href="#x-and-y-bounds" title="Permalink to this headline">¶</a></h2>
-<p>You can specify X and Y bounds of plot with <code class="docutils literal notranslate"><span class="pre">--t1</span></code>, <code class="docutils literal notranslate"><span class="pre">--t2</span></code> and <code class="docutils literal notranslate"><span class="pre">vmin</span></code>, <code class="docutils literal notranslate"><span class="pre">vmax</span></code> options.
-Units for X-bounds are record numbers, not physical time units.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d --t1 50000 --t2 60000 --vmin 0.002 --vmax 0.004 ../data/series/energy.dsq -o energy-xy.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-xy.png"><img alt="_images/energy-xy.png" src="_images/energy-xy.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-</section>
-<section id="reference-values">
-<h2>Reference values<a class="headerlink" href="#reference-values" title="Permalink to this headline">¶</a></h2>
-<p>You can choose a reference variable within the input file with <code class="docutils literal notranslate"><span class="pre">--ref</span></code> option.
-Its values will be subtracted from all plotted variables:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq --ref &quot;TKE [avg]&quot; --vars &quot;TKE [avg]&quot; &quot;u-TKE [avg]&quot; -o energy-tke-ref.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-tke-ref.png"><img alt="_images/energy-tke-ref.png" src="_images/energy-tke-ref.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-<p>You can choose a reference file with <code class="docutils literal notranslate"><span class="pre">--diff</span></code> option.
-Its values will be subtracted from  all variables’ values of input files.
-If you additionall provide reference varaible with <code class="docutils literal notranslate"><span class="pre">--ref</span></code> option
-then values of reference variable in the reference file will be subtracted.</p>
-<p>All input files must be conform with the reference file. They must have same
-variables and number of records.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq --diff ../data/series/energy.dsq -o energy-tke-fref.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-tke-fref.png"><img alt="_images/energy-tke-fref.png" src="_images/energy-tke-fref.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-</section>
-<section id="title-labels-and-legend">
-<h2>Title, labels and legend<a class="headerlink" href="#title-labels-and-legend" title="Permalink to this headline">¶</a></h2>
-<p>To add the title and axis labels use <code class="docutils literal notranslate"><span class="pre">-t</span></code>, <code class="docutils literal notranslate"><span class="pre">--xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">--ylabel</span></code> options</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq -t &quot;TKEs, exp #1&quot; --xlabel &quot;time, hours&quot; --ylabel &quot;energy,  m²s⁻²&quot;  -o energy-t.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-t.png"><img alt="_images/energy-t.png" src="_images/energy-t.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-<p>You can adjust the label’s position and orientation providing extra
-arguments to <code class="docutils literal notranslate"><span class="pre">--xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">--ylabel</span></code>. See <code class="docutils literal notranslate"><span class="pre">--help</span></code> for list of available keywords.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq --ylabel &quot;energy, m²s⁻²&quot; top hor -t &quot;TKEs, exp #1&quot; --xlabel &quot;time, hours&quot; right   -o energy-t-ad.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-t-ad.png"><img alt="_images/energy-t-ad.png" src="_images/energy-t-ad.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
-<p>Legend position is contolled with <code class="docutils literal notranslate"><span class="pre">--legend-loc</span></code> option.
-See <code class="docutils literal notranslate"><span class="pre">--help</span></code> for list of available keywords.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq --legend-loc=&quot;upper right&quot; -t &quot;TKEs, exp #1&quot; --xlabel &quot;time, hours&quot;  --ylabel &quot;energy, m²s⁻²&quot;   -o energy-lloc.png
-</pre></div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/energy-lloc.png"><img alt="_images/energy-lloc.png" src="_images/energy-lloc.png" style="width: 480.0px; height: 360.0px;" /></a>
-</figure>
+<p>For other examples check our collection of
+<a class="reference internal" href="nseplot1d.html"><span class="doc">nseplot1d usage cases.</span></a></p>
 </section>
 </section>
 
