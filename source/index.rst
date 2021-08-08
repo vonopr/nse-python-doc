@@ -15,7 +15,7 @@ nse-python
 .. _nse-python: http://tesla.parallel.ru/vonopr/nse-python
 
 This is the documention of nse-python_ project.
-It provides python tools for processing the ouput of nse projects.
+It provides python tools for processing the output of nse projects.
 
 
 Installation
@@ -23,7 +23,7 @@ Installation
 
 Download ``nse-python`` with git and install with ``pip``
 
-.. code-block:: bash
+.. code-block:: text
 
   git clone http://tesla.parallel.ru/vonopr/nse-python.git
   cd nse-python
