@@ -68,8 +68,8 @@ Multiple input files are also possible. In this case ``-o`` option is not applic
 .. command-output:: nseplot1d ../data/series/energy.dsq ../data/series/phys.dsq
    :cwd: ../build/html/work/pics
 
-.. command-output:: nseplot1d ../data/series/*.dsq
-   :cwd: ../build/html/work/pics
+.. program-output:: echo "nseplot1d ../data/series/*.dsq"
+
 
 Select variables
 ^^^^^^^^^^^^^^^^
