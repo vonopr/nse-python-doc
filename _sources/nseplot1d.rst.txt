@@ -143,3 +143,4 @@ See ``--help`` for list of available keywords.
 
 .. figure:: ../build/html/work/pics/energy-lloc.png
    :scale: 25%
+

@@ -32,15 +32,16 @@ Download ``nse-python`` with git and install with ``pip``
 How to start
 ^^^^^^^^^^^^
 
-To create a plot of timeseries contained in a dsq-file energy.dsq run
+To create a plot of timeseries contained in a dsq-file
+*series/energy.dsq* run
 
-.. command-output:: nseplot1d energy.dsq
-   :cwd: ../build/html/work/data/series
+.. command-output:: nseplot1d series/energy.dsq
+   :cwd: ../build/html/work/data
 
 This will produce an image *energy.png* inside your current 
 working directory:
 
-.. figure:: ../build/html/work/data/series/energy.png
+.. figure:: ../build/html/work/data/energy.png
    :scale: 25%
 
 
@@ -50,7 +51,4 @@ To get information about ``nseplot1d`` usage run it with ``--help`` flag:
 
 For other examples check our collection of 
 :doc:`nseplot1d usage cases. <nseplot1d>`
-
-
-
 
