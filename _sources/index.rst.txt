@@ -23,7 +23,7 @@ Installation
 
 Download ``nse-python`` with git and install with ``pip``
 
-.. code-block:: bash
+.. code-block:: text
 
   git clone http://tesla.parallel.ru/vonopr/nse-python.git
   cd nse-python
