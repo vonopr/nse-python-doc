@@ -12,7 +12,7 @@ Download sample data
 We provide some sample data to demonstrate how ``nseplot1d`` works.
 You may download it with
 
-.. program-output:: cat ./init.sh 
+.. program-output:: cat ./init.sh
 
 .. runpython::
    :rst:
@@ -24,7 +24,7 @@ You may download it with
    
    workdir = Path("./build/html/work")
    workdir.mkdir(parents=True, exist_ok=True)
-   output = subprocess.call("sh ../../../source/init.sh", shell=True, cwd="build/html/work")#, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)  
+   output = subprocess.call("sh ../../../source/init.sh", shell=True, cwd="build/html/work", stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL) 
    print("")
 
 The directory tree would be as following:
