@@ -217,6 +217,10 @@ Its values will be subtracted from all plotted variables:</p>
 Its values will be subtracted from  all variables’ values of input files.
 If you additionall provide reference varaible with <code class="docutils literal notranslate"><span class="pre">--ref</span></code> option
 then values of reference variable in the reference file will be subtracted.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Reference options currently work only with <em>.dsq</em> files, not <em>.plt</em></p>
+</div>
 <p>All input files must be conform with the reference file. They must have same
 variables and number of records.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq --diff ../data/series/energy.dsq -o energy-tke-fref.png

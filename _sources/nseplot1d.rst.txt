@@ -23,7 +23,8 @@ You may download it with
    
    workdir = Path("./build/html/work")
    workdir.mkdir(parents=True, exist_ok=True)
-   output = subprocess.call("sh ../../../source/init.sh", shell=True, cwd="build/html/work", stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL) 
+   if not Path(workdir.joinpath('data', 'series', 'energy.dsq')).exists():
+     output = subprocess.call("sh ../../../source/init.sh", shell=True, cwd="build/html/work", stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL) 
    print("")
 
 The directory tree would be as following:
@@ -67,7 +68,7 @@ Select variables
 
 Choose variables to plot with ``--vars`` option:
 
-.. command-output:: nseplot1d ../data/series/energy.dsq  --vars "u-TKE [avg]" "v-TKE [avg]" -o energy-uv.png  
+.. command-output:: nseplot1d ../data/series/energy.dsq  --vars "u-TKE [avg]" "v-TKE [avg]" -o energy-uv.png
    :cwd: ../build/html/work/pics
 
 .. figure:: ../build/html/work/pics/energy-uv.png
@@ -75,7 +76,7 @@ Choose variables to plot with ``--vars`` option:
 
 
 X and Y bounds
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 You can specify X and Y bounds of plot with ``--t1``, ``--t2`` and ``vmin``, ``vmax`` options.
 Units for X-bounds are record numbers, not physical time units.
@@ -97,17 +98,23 @@ Its values will be subtracted from all plotted variables:
    :cwd: ../build/html/work/pics
 
 .. figure:: ../build/html/work/pics/energy-tke-ref.png
-   :scale: 25%
+   :scale: 25% 
 
 You can choose a reference file with ``--diff`` option.
 Its values will be subtracted from  all variables' values of input files.
 If you additionall provide reference varaible with ``--ref`` option 
 then values of reference variable in the reference file will be subtracted.
 
+.. important:: 
+
+  Reference options currently work only with *.dsq* files, not *.plt*
+
+
+ 
 All input files must be conform with the reference file. They must have same
 variables and number of records.
 
-.. command-output:: nseplot1d ../data/series/energy.dsq --diff ../data/series/energy.dsq -o energy-tke-fref.png 
+.. command-output:: nseplot1d ../data/series/energy.dsq --diff ../data/series/energy.dsq -o energy-tke-fref.png
    :cwd: ../build/html/work/pics
 
 .. figure:: ../build/html/work/pics/energy-tke-fref.png
@@ -125,7 +132,7 @@ To add the title and axis labels use ``-t``, ``--xlabel`` and ``--ylabel`` optio
 .. figure:: ../build/html/work/pics/energy-t.png
    :scale: 25%
 
-You can adjust the label's position and orientation providing extra 
+You can adjust the label's position and orientation providing extra
 arguments to ``--xlabel`` and ``--ylabel``. See ``--help`` for list of available keywords.
 
 .. command-output:: nseplot1d ../data/series/energy.dsq --ylabel "energy, m²s⁻²" top hor -t "TKEs, exp #1" --xlabel "time, hours" right   -o energy-t-ad.png 

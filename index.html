@@ -141,9 +141,57 @@ pip install .
 </pre></div>
 </div>
 </section>
-<section id="how-to-start">
-<h2>How to start<a class="headerlink" href="#how-to-start" title="Permalink to this headline">¶</a></h2>
-<p>To create a plot of timeseries contained in a dsq-file
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<section id="nseplot2d">
+<h3>nseplot2d<a class="headerlink" href="#nseplot2d" title="Permalink to this headline">¶</a></h3>
+<p>You can create 2d plots from <em>.plt</em> and <em>.nsq</em>
+files with <code class="docutils literal notranslate"><span class="pre">nseplot2d</span></code> utitlity. Assume that you have <em>plt-3d/velocity-2.plt</em> file with U,V and W variables.</p>
+<p>Run command</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot2d plt-3d/velocity-2.plt U
+</pre></div>
+</div>
+<p>to achieve an image <em>velocity-2_U_z0.png</em>:</p>
+<a class="reference internal image-reference" href="_images/velocity-2_U_z0.png"><img alt="_images/velocity-2_U_z0.png" src="_images/velocity-2_U_z0.png" style="width: 448.0px; height: 336.0px;" /></a>
+<p>You can set Z-level with <code class="docutils literal notranslate"><span class="pre">--z0</span></code> option. Also, you can adjust the image title,
+axes label and colormap with options <code class="docutils literal notranslate"><span class="pre">--title</span></code>, <code class="docutils literal notranslate"><span class="pre">--xlabel</span></code>, <code class="docutils literal notranslate"><span class="pre">--ylabel</span></code>
+and <code class="docutils literal notranslate"><span class="pre">cmap</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot2d plt-3d/velocity-2.plt V --z0 30 --cmap speed --title &quot;Check this colormap&quot;
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/velocity-2_V_z30.png"><img alt="_images/velocity-2_V_z30.png" src="_images/velocity-2_V_z30.png" style="width: 448.0px; height: 336.0px;" /></a>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot2d binary-3d/temperature-init.nsx Temperature --cmap coolwarm --xlabel &quot;X, km&quot; --ylabel &quot;Y, km&quot;
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/temperature-init_Temperature_z0.png"><img alt="_images/temperature-init_Temperature_z0.png" src="_images/temperature-init_Temperature_z0.png" style="width: 448.0px; height: 336.0px;" /></a>
+<p>To get list of available color maps run <code class="docutils literal notranslate"><span class="pre">nseplot2d</span></code> with <code class="docutils literal notranslate"><span class="pre">--cmaps</span></code>
+options. To get help message use <code class="docutils literal notranslate"><span class="pre">--help</span></code> option.</p>
+</section>
+<section id="nseplotvec">
+<h3>nseplotvec<a class="headerlink" href="#nseplotvec" title="Permalink to this headline">¶</a></h3>
+<p>To plot velocity vector with <code class="docutils literal notranslate"><span class="pre">nseplotvec</span></code> at 30-th depth level run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplotvec binary-3d/velocity-init.nsx U V --z0 30
+</pre></div>
+</div>
+<p>An image <em>velocity-init_UV_z30.png</em> will be produced.</p>
+<a class="reference internal image-reference" href="_images/velocity-init_UV_z30.png"><img alt="_images/velocity-init_UV_z30.png" src="_images/velocity-init_UV_z30.png" style="width: 448.0px; height: 336.0px;" /></a>
+<p>The grid resolution is rather high. It makes the plot bloated with arrows.
+To skip drawing every second arrow along X and Y axis run <code class="docutils literal notranslate"><span class="pre">nseplotvec</span></code>
+with <code class="docutils literal notranslate"><span class="pre">--skip</span></code> option:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplotvec binary-3d/velocity-init.nsx U V --z0 30 --skip 2 2 -o vec_skipped.png
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/vec_skipped.png"><img alt="_images/vec_skipped.png" src="_images/vec_skipped.png" style="width: 448.0px; height: 336.0px;" /></a>
+<p>Adjust the plot with options: <code class="docutils literal notranslate"><span class="pre">--title</span></code>, <code class="docutils literal notranslate"><span class="pre">--xlabel</span></code>, <code class="docutils literal notranslate"><span class="pre">--ylabel</span></code>, <code class="docutils literal notranslate"><span class="pre">--cmap</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplotvec plt-3d/velocity-2.plt U V --cmap viridis  --title &quot;My title&quot; --xlabel &quot;My X axis label&quot; --ylabel &quot;My Y axis label&quot; --skip 3 3
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/velocity-2_UV_z0.png"><img alt="_images/velocity-2_UV_z0.png" src="_images/velocity-2_UV_z0.png" style="width: 448.0px; height: 336.0px;" /></a>
+<p>To get help message use <code class="docutils literal notranslate"><span class="pre">--help</span></code> option.</p>
+</section>
+<section id="nseplot1d">
+<h3>nseplot1d<a class="headerlink" href="#nseplot1d" title="Permalink to this headline">¶</a></h3>
+<p>To create a plot of timeseries contained in a <em>.dsq</em> file
 <em>series/energy.dsq</em> run</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d series/energy.dsq
 </pre></div>
@@ -153,12 +201,40 @@ working directory:</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/energy1.png"><img alt="_images/energy1.png" src="_images/energy1.png" style="width: 480.0px; height: 360.0px;" /></a>
 </figure>
+<p>To create a plot from timeseries contained in a <em>.plt</em> file you must
+provide <code class="docutils literal notranslate"><span class="pre">--nzone</span></code> argument. For single zone files it must be <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+for multizone it is less or equal number of zones in file minus one.</p>
+<p>Also in contast with <em>.dsq</em> case, for <em>.plt</em> file you must provide <code class="docutils literal notranslate"><span class="pre">--vars</span></code>
+option. It supports regular expression, to plot all variable in the file
+pass <code class="docutils literal notranslate"><span class="pre">--vars='.+'</span></code>.</p>
+<p>The command below</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d plt-1d/-TKE(z)-balance-12.plt --nzone 0 --vars &quot;TKE.+&quot;
+</pre></div>
+</div>
+<p>generates file <em>-TKE(z)-balance-12.png</em> with all variables which names start with “TKE”.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/-TKE(z)-balance-12.png"><img alt="_images/-TKE(z)-balance-12.png" src="_images/-TKE(z)-balance-12.png" style="width: 480.0px; height: 360.0px;" /></a>
+</figure>
+<p>The file <em>plt-1d-multizone/U-1.plt</em> contains two zones.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d plt-1d-multizone/U-1.plt --nzone 0 --vars &quot;.+&quot;
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d plt-1d-multizone/U-1.plt --nzone 1 --vars &quot;.+&quot;
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/U-1_z0.png"><img alt="_images/U-1_z0.png" src="_images/U-1_z0.png" style="width: 326.40000000000003px; height: 244.8px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/U-1_z1.png"><img alt="_images/U-1_z1.png" src="_images/U-1_z1.png" style="width: 326.40000000000003px; height: 244.8px;" /></a>
+</figure>
 <p>To get information about <code class="docutils literal notranslate"><span class="pre">nseplot1d</span></code> usage run it with <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d --help
 </pre></div>
 </div>
 <p>For other examples check our collection of
 <a class="reference internal" href="nseplot1d.html"><span class="doc">nseplot1d usage cases.</span></a></p>
+</section>
 </section>
 </section>
 
