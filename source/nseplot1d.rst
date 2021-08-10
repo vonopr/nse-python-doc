@@ -68,11 +68,43 @@ Select variables
 
 Choose variables to plot with ``--vars`` option:
 
+.. command-output:: nseplot1d ../data/series/energy.dsq  --vars "u-TKE [avg]" -o energy-u.png
+   :cwd: ../build/html/work/pics
+
+.. figure:: ../build/html/work/pics/energy-u.png
+   :scale: 25%
+
+Quotes are used because the variable name ``u-TKE [avg]`` contains an empty space.
+
+You can use ``--vars`` to provide a list of varaibles:
+
 .. command-output:: nseplot1d ../data/series/energy.dsq  --vars "u-TKE [avg]" "v-TKE [avg]" -o energy-uv.png
    :cwd: ../build/html/work/pics
 
 .. figure:: ../build/html/work/pics/energy-uv.png
    :scale: 25%
+
+Also it is possible to use `regular expressions <https://docs.python.org/3/library/re.html>`_:
+
+.. command-output:: nseplot1d ../data/series/energy.dsq  --vars ".*TKE \[avg\]" -o energy-TKEs.png
+   :cwd: ../build/html/work/pics
+
+.. figure:: ../build/html/work/pics/energy-TKEs.png
+   :scale: 25%
+
+
+.. note::
+   The expression ``.`` matches any symbol, ``*`` mathces zero or any occurancies of the previous symbol,
+   ``+`` mathces one or zero occurancies of the previous symbol. Brackets are treated in a special way when using
+   regular expressions, to escape it provide a backslash ``\`` right before a bracket: ``\{``, ``\}``. 
+
+
+.. command-output:: nseplot1d ../data/series/energy.dsq  --vars ".+TKE \[avg\]" -o energy-uvw.png
+   :cwd: ../build/html/work/pics
+
+.. figure:: ../build/html/work/pics/energy-uvw.png
+   :scale: 25%
+
 
 
 X and Y bounds
