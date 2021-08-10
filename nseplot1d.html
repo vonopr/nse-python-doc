@@ -185,11 +185,38 @@ cd pics
 <section id="select-variables">
 <h2>Select variables<a class="headerlink" href="#select-variables" title="Permalink to this headline">¶</a></h2>
 <p>Choose variables to plot with <code class="docutils literal notranslate"><span class="pre">--vars</span></code> option:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq  --vars &quot;u-TKE [avg]&quot; -o energy-u.png
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/energy-u.png"><img alt="_images/energy-u.png" src="_images/energy-u.png" style="width: 480.0px; height: 360.0px;" /></a>
+</figure>
+<p>Quotes are used because the variable name <code class="docutils literal notranslate"><span class="pre">u-TKE</span> <span class="pre">[avg]</span></code> contains an empty space.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">--vars</span></code> to provide a list of varaibles:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq  --vars &quot;u-TKE [avg]&quot; &quot;v-TKE [avg]&quot; -o energy-uv.png
 </pre></div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/energy-uv.png"><img alt="_images/energy-uv.png" src="_images/energy-uv.png" style="width: 480.0px; height: 360.0px;" /></a>
+</figure>
+<p>Also it is possible to use <a class="reference external" href="https://docs.python.org/3/library/re.html">regular expressions</a>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq  --vars &quot;.*TKE \[avg\]&quot; -o energy-TKEs.png
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/energy-uv.png"><img alt="_images/energy-uv.png" src="_images/energy-uv.png" style="width: 480.0px; height: 360.0px;" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">.</span></code> matches any symbol, <code class="docutils literal notranslate"><span class="pre">*</span></code> mathces zero or any occurancies of the previous symbol,
+<code class="docutils literal notranslate"><span class="pre">+</span></code> mathces one or zero occurancies of the previous symbol. Brackets are treated in a special way when using
+regular expressions, to escape it provide a backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> right before a bracket: <code class="docutils literal notranslate"><span class="pre">\{</span></code>, <code class="docutils literal notranslate"><span class="pre">\}</span></code>.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nseplot1d ../data/series/energy.dsq  --vars &quot;.+TKE \[avg\]&quot; -o energy-uvw.png
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/energy-uvw.png"><img alt="_images/energy-uvw.png" src="_images/energy-uvw.png" style="width: 480.0px; height: 360.0px;" /></a>
 </figure>
 </section>
 <section id="x-and-y-bounds">
