@@ -26,6 +26,12 @@ Download ``nse-python`` with git and install with ``pip``
   git clone http://tesla.parallel.ru/vonopr/nse-python.git
   cd nse-python
   pip install .
+
+or instead of the last line you may have to use
+
+.. code-block:: bash
+
+  python3 -m pip install .  #this works on INM cluster
   
 Usage
 -----
