@@ -89,7 +89,7 @@ Also it is possible to use `regular expressions <https://docs.python.org/3/libra
 .. command-output:: nseplot1d ../data/series/energy.dsq  --vars ".*TKE \[avg\]" -o energy-TKEs.png
    :cwd: ../build/html/work/pics
 
-.. figure:: ../build/html/work/pics/energy-uv.png
+.. figure:: ../build/html/work/pics/energy-TKEs.png
    :scale: 25%
 
 
